@@ -1,0 +1,69 @@
+{% extends 'base1.html.twig' %}
+
+{% block title_container %}Page d'inscription{% endblock %}
+
+{% block page_name %}Inscription{% endblock %}
+
+{% block inner_container %}
+  <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="pt-4 pb-2">
+                    <h5 class="card-title text-center pb-0 fs-4">Creation d'un compte</h5>
+                    <p class="text-center small">Entrez vos données pour créer un compte</p>
+                  </div>
+                   {{ form_start(form) }}
+                  <div class="row g-3 needs-validation"  novalidate>
+                    <div class="col-12">
+                      <label for="yourName" class="form-label">Nom</label>
+                        {{ form_widget(form.nom) }} 
+                      <div class="invalid-feedback">Entrez un nom valide!</div>
+                    </div>
+                    <div class="col-12">
+                      <label for="yourFName" class="form-label">Prenom</label>
+                      {{ form_widget(form.prenom) }} 
+                      <div class="invalid-feedback">Entrez un prenom valide!</div>
+                    </div>
+                    <div class="col-12">
+                      <label for="yourEmail" class="form-label">Email</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                        {{ form_widget(form.email) }} 
+                        <div class="invalid-feedback">Entrez votre adresse email!</div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <label for="yourNumber" class="form-label">Telephone</label>
+                      {{ form_widget(form.tel) }} 
+                      <div class="invalid-feedback">Entrez votre numero de Telephone!</div>
+                    </div>
+                   
+                    
+                    <div class="col-12">
+                      <label for="yourPassword" class="form-label">Mot de passe</label>
+                     {{ form_widget(form.password) }} 
+                      <div class="invalid-feedback">Entrez votre mot de passe!</div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
+                        <label class="form-check-label" for="acceptTerms">J'accepte les <a href="#">termes et conditions</a></label>
+                        <div class="invalid-feedback">Vous devez accepter avant de soumettre.</div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-warning w-100" type="submit">Soumettre</button>
+                    </div>
+                    <div class="col-12">
+                      <p class="small mb-0">Vous avez deja un compte? <a href="{{path('login')}}">Connectez-vous.</a></p>
+                    </div>
+                  </div>
+                  {{ form_end(form) }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+{% endblock %}
